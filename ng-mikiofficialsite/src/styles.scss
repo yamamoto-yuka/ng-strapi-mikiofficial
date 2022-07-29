@@ -1,0 +1,53 @@
+$text: #6d6d6d;
+$hover: #03a2bc;
+$white: #fff;
+$green: #78d2ad;
+$Hgreen: #539479;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+
+@mixin centerCenter($j: center, $a: center) {
+  display: flex;
+  justify-content: $j;
+  align-items: $a;
+}
+@mixin hover($color:$hover, $translateY: -50%) {
+  color: $color;
+  transform: translateY($translateY);
+  transition: all 0.5s ease-in-out;
+}
+
+
+.wrap {
+ height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  @include hover();
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+
+h2,
+h3,
+p,
+a {
+  color: $text;
+  font-family: "Noto+Sans+JP", sans-serif;
+}
+
+
+.headline {
+  margin-bottom: 50px;
+  font-size: 3.5rem;
+  color: $text;
+  font-family: "Montserrat", sans-serif;
+}

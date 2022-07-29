@@ -1,0 +1,51 @@
+GET http://localhost:1337/api/banners?populate=*
+
+###
+GET http://localhost:1337/api/homeliveinfo
+
+###
+GET http://localhost:1337/api/discographies?populate=*
+
+###
+GET http://localhost:1337/api/lives?populate=*
+
+###
+POST http://localhost:1337/api/contacts
+Content-Type: application/json
+
+{
+  "data":
+  {
+  "name":"test",
+  "email":"test@c.com",
+  "subject":"test",
+  "content":"testtest"
+  }
+}
+
+
+###
+GET https://cms.yukayamamoto.me/api/banners?populate=deep
+
+###
+GET https://cms.yukayamamoto.me/api/homeliveinfo
+
+###
+GET https://cms.yukayamamoto.me/api/lives?populate=deep
+
+###
+GET https://cms.yukayamamoto.me/api/discographies?populate=deep
+
+###
+POST https://cms.yukayamamoto.me/api/contacts
+Content-Type: application/json
+
+{
+  "data":
+  {
+  "name":"test",
+  "email":"test@c.com",
+  "subject":"test",
+  "content":"testtest"
+  }
+}

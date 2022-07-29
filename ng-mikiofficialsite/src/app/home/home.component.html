@@ -1,0 +1,128 @@
+<loading></loading>
+<app-header></app-header>
+<div #container class="container">
+  <div id="herocarousel" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#herocarousel"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#herocarousel"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#herocarousel"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div
+        *ngFor="let banner of banners; let i = index"
+        [class.active]="i === 0"
+        class="carousel-item"
+      >
+        <div class="carousel-item-wrap">
+          <div class="cta-wrap">
+            <h1 class="cta-title">{{ banner.attributes.Title }}</h1>
+            <p class="cta-desc">{{ banner.attributes.Description }}</p>
+            <div class="btn-wrap">
+              <a
+                [href]="banner.attributes.SiteURL"
+                target="_blank"
+                class="cta-button"
+                >詳細を見る！</a
+              >
+            </div>
+          </div>
+          <div class="img-wrap">
+            <img
+              [src]="banner.attributes.img.data[0].attributes.url"
+              class="d-block w-100"
+              [alt]="banner.attributes.img.data[0].attributes.alternativeText"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#herocarousel"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#herocarousel"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div
+    #live
+    class="home-liveinfo"
+    inViewport
+    [inViewportOptions]="{ threshold: [0] }"
+    (inViewportAction)="onIntersection($event)"
+  >
+    <h2 class="headline">Live</h2>
+    <div class="live-wrap">
+      <p class="live-date">{{ liveinfo.attributes.data }}</p>
+      <h3 class="live-title">{{ liveinfo.attributes.title }}</h3>
+      <p class="live-desc">{{ liveinfo.attributes.desc }}</p>
+    </div>
+  </div>
+  <div class="video"
+  inViewport
+  [inViewportOptions]="{ threshold: [0] }"
+  (inViewportAction)="onIntersection($event)">
+    <h2 
+    class="headline">Video</h2>
+    <div class="wrapper">
+      <div #firstVideo class="videoContainer">
+        <div>
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/bg-8H5LiWGY"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p>春の歌/スピッツ(Cover)</p>
+      </div>
+      <div #secondVideo class="videoContainer">
+        <div>
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/Vwr9yr86j80"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p>おまじない/美稀</p>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

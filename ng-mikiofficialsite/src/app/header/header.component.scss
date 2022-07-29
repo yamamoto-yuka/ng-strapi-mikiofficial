@@ -1,0 +1,154 @@
+@import "../../styles.scss";
+
+@keyframes showup {
+  from {
+    opacity: 0;
+    transform: rotate(-20deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+ul{
+  padding: 0;
+}
+
+nav {
+  height: 15vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2.5rem;
+  z-index: 2;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.09);
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: flex-end;
+  img {
+    height: 100%;
+    width: 100%;
+    padding-right: 1rem;
+    object-fit: contain;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .logo:nth-child(1) {
+    animation: showup 1s linear;
+  }
+  .logo:nth-child(2) {
+    animation: showup 1.3s linear;
+  }
+  .logo:nth-child(3) {
+    animation: showup 1.6s linear;
+  }
+}
+.logo-wrap img:hover {
+  transform: translateY(-10px);
+}
+
+.hamburger {
+  width: 50px;
+  position: fixed;
+  top: 3%;
+  right: 5%;
+  transform: translateY(-3%);
+  z-index: 4;
+  cursor: pointer;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    transition: all 0.8s ease-in-out;
+  }
+}
+
+.hamburger img:hover {
+  transform: rotate(-45deg);
+}
+
+// active classes
+.hamburger.active {
+  position: fixed;
+  top: 10%;
+  right: 15%;
+  transform: rotate(-45deg);
+}
+
+.nav-links {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  clip-path: circle(10px at 90% -10%);
+  -webkit-clip-path: circle(10px at 90% -10%);
+  pointer-events: none;
+  text-align: center;
+  z-index: 3;
+  background-color: $green;
+  transition: all 1.5s ease-out;
+}
+
+.nav-links.open {
+  clip-path: circle(2000px at 90% -10%);
+  -webkit-clip-path: circle(2000px at 90% -10%);
+  pointer-events: all;
+}
+
+.page-links li {
+  margin-bottom: 2rem;
+  a {
+    font-size: 1.8rem;
+    letter-spacing: 1.2px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    color: $white;
+    transition: all 0.3s ease-out;
+  }
+  a:hover {
+    color: $Hgreen;
+  }
+}
+
+.social-links {
+  display: flex;
+  li {
+    padding-right: 1rem;
+
+    svg {
+      height: 30px;
+      width: 30px;
+      fill: $white;
+      transition: all 0.3s ease-out;
+    }
+    svg:hover {
+      fill: $Hgreen;
+    }
+  }
+  li:last-child {
+    padding-right: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .social-links {
+    li {
+      padding-right: 2rem;
+      svg {
+        height: 35px;
+        width: 35px;
+      }
+    }
+  }
+}
